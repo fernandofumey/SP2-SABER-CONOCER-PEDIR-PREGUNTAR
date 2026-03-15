@@ -292,7 +292,7 @@
                         else if (q.type === 'double_dropdown_matching') correctStr = q.rows.map(r => `${r.left} -> ${r.right1} ${r.right2}`).join(', ');
                         
                         // Map the right/wrong state & the correct answer back to the original prompt
-                        responsesByPrompt[q.prompt] = `${isRight ? 'Right' : 'Wrong'} - ${correctStr}`;
+                        responsesByPrompt[q.prompt] = `${isRight ? 'right' : 'wrong'} - ${correctStr}`;
                     });
 
                     const percentageScore = Math.round((finalScore / shuffledQuestions.length) * 100);
@@ -315,9 +315,9 @@
                     localStorage.setItem('hacerQuizTakers', JSON.stringify(pastTakers));
                 }
 
-                // 1) Download CSV for student (NO right/wrong details)
-                const headers = ["Quiz Title", "Date", "First Name", "Last Name", "Email", "Period", "Score", "Total Questions", "Cheating Alerts"];
-                const row = [
+                // 1) Download CSV for student (Basic info only, NO question details)
+                const baseHeaders = ["Quiz Title", "Date", "First Name", "Last Name", "Email", "Period", "Score", "Total Questions", "Cheating Alerts"];
+                const baseRow = [
                     "SABER VS CONOCER & PEDIR VS PREGUNTAR (50 Qs)",
                     new Date().toLocaleDateString(),
                     studentInfo.firstName,
@@ -328,7 +328,8 @@
                     totalQs,
                     cheatCount
                 ];
-                const csvContent = headers.join(",") + "\n" + row.map(item => `"${item}"`).join(",");
+
+                const csvContent = baseHeaders.map(h => `"${h}"`).join(",") + "\n" + baseRow.map(item => `"${item}"`).join(",");
                 const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
                 const url = URL.createObjectURL(blob);
                 const link = document.createElement("a");
@@ -338,7 +339,7 @@
                 link.click();
                 document.body.removeChild(link);
 
-                // 2) Payload for Google Sheets (INCLUDES right/wrong details)
+                // 2) Payload for Google Sheets (INCLUDES right/wrong details for the teacher)
                 const payload = {
                     quizTitle: "SABER VS CONOCER & PEDIR VS PREGUNTAR",
                     // Prepends the title directly to the timestamp so it goes into the existing first cell
@@ -362,14 +363,18 @@
 
                 try {
                     // Make sure to replace this URL with your actual Google Apps Script Web App URL
-                    const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzF2cyJXzduz4pt8ZsXX8QT4jXYWFrkd9i_vIJUjSpTJf9qsB1A9BX8pl5Cl7zvl2LL/exec";
+                    const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwEYa0Wv7mKtK7XRpDEtLwqxO9c8dfqwcPNCT4Y303nts1JxBNYw67dAXZurMJjYQHC/exec";
                     
                     if (GOOGLE_SHEETS_WEB_APP_URL !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
+                        
+                        // NEW FAILSAFE: Packages the data as a standard Web Form to bypass all firewalls and browser CORS blocking
+                        const formData = new URLSearchParams();
+                        formData.append("data", JSON.stringify(payload));
+
                         await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
                             method: 'POST',
-                            mode: 'no-cors',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
+                            mode: 'no-cors', // IMPORTANT: This prevents the browser from blocking Google's redirect
+                            body: formData
                         });
                         setSubmitStatus('Results successfully saved to Gradebook!');
                     } else {
