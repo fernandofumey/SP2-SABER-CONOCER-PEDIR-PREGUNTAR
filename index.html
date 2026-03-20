@@ -43,21 +43,21 @@
         // --- 50 QUESTION BANK (Saber/Conocer & Pedir/Preguntar) ---
         const QUESTIONS = [
             // Drag & Drop (15)
-            { type: 'drag_drop', prompt: "I know how to swim.", correct: ["yo", "sé", "nadar"], distractors: ["conozco", "sabes", "a"] },
-            { type: 'drag_drop', prompt: "She knows my brother.", correct: ["ella", "conoce", "a", "mi", "hermano"], distractors: ["sabe", "conocen", "de"] },
-            { type: 'drag_drop', prompt: "We ask for water.", correct: ["nosotros", "pedimos", "agua"], distractors: ["preguntamos", "piden", "por"] },
-            { type: 'drag_drop', prompt: "He asks what time it is.", correct: ["él", "pregunta", "qué", "hora", "es"], distractors: ["pide", "pregunto", "a"] },
-            { type: 'drag_drop', prompt: "They know the answer.", correct: ["ellos", "saben", "la", "respuesta"], distractors: ["conocen", "sabe", "a"] },
-            { type: 'drag_drop', prompt: "Do you know where the restaurant is?", correct: ["tú", "sabes", "dónde", "está", "el", "restaurante"], distractors: ["conoces", "pides"] },
-            { type: 'drag_drop', prompt: "We know the new teacher.", correct: ["nosotros", "conocemos", "al", "maestro", "nuevo"], distractors: ["sabemos", "a", "el"] },
-            { type: 'drag_drop', prompt: "I order the chicken.", correct: ["yo", "pido", "el", "pollo"], distractors: ["pregunto", "sabe"] },
-            { type: 'drag_drop', prompt: "She asks a lot of questions.", correct: ["ella", "pregunta", "mucho"], distractors: ["pide", "sabe", "por"] },
-            { type: 'drag_drop', prompt: "I don't know the phone number.", correct: ["yo", "no", "sé", "el", "número"], distractors: ["conozco", "sabes"] },
-            { type: 'drag_drop', prompt: "They know Paris very well.", correct: ["ellos", "conocen", "parís", "muy", "bien"], distractors: ["saben", "conocer"] },
-            { type: 'drag_drop', prompt: "You ask for a favor.", correct: ["tú", "pides", "un", "favor"], distractors: ["preguntas", "por"] },
-            { type: 'drag_drop', prompt: "We ask where the museum is.", correct: ["nosotros", "preguntamos", "dónde", "está", "el", "museo"], distractors: ["pedimos", "sabemos"] },
-            { type: 'drag_drop', prompt: "He knows how to speak Spanish.", correct: ["él", "sabe", "hablar", "español"], distractors: ["conoce", "habla"] },
-            { type: 'drag_drop', prompt: "Do you know my friend Maria?", correct: ["conoces", "a", "mi", "amiga", "maría"], distractors: ["sabes", "de", "conoce"] },
+            { type: 'drag_drop', prompt: "I know how to swim.", correct: ["yo", "sé", "nadar"], acceptable: ["yo sé nadar", "sé nadar"], distractors: ["conozco", "sabes", "a"] },
+            { type: 'drag_drop', prompt: "She knows my brother.", correct: ["ella", "conoce", "a", "mi", "hermano"], acceptable: ["ella conoce a mi hermano", "conoce a mi hermano"], distractors: ["sabe", "conocen", "de"] },
+            { type: 'drag_drop', prompt: "We ask for water.", correct: ["nosotros", "pedimos", "agua"], acceptable: ["nosotros pedimos agua", "pedimos agua"], distractors: ["preguntamos", "piden", "por"] },
+            { type: 'drag_drop', prompt: "He asks what time it is.", correct: ["él", "pregunta", "qué", "hora", "es"], acceptable: ["él pregunta qué hora es", "pregunta qué hora es"], distractors: ["pide", "pregunto", "a"] },
+            { type: 'drag_drop', prompt: "They know the answer.", correct: ["ellos", "saben", "la", "respuesta"], acceptable: ["ellos saben la respuesta", "saben la respuesta"], distractors: ["conocen", "sabe", "a"] },
+            { type: 'drag_drop', prompt: "Do you know where the restaurant is?", correct: ["tú", "sabes", "dónde", "está", "el", "restaurante"], acceptable: ["tú sabes dónde está el restaurante", "sabes tú dónde está el restaurante", "sabes dónde está el restaurante tú", "sabes dónde está el restaurante"], distractors: ["conoces", "pides"] },
+            { type: 'drag_drop', prompt: "We know the new teacher.", correct: ["nosotros", "conocemos", "al", "maestro", "nuevo"], acceptable: ["nosotros conocemos al maestro nuevo", "nosotros conocemos al nuevo maestro", "conocemos al maestro nuevo", "conocemos al nuevo maestro"], distractors: ["sabemos", "a", "el"] },
+            { type: 'drag_drop', prompt: "I order the chicken.", correct: ["yo", "pido", "el", "pollo"], acceptable: ["yo pido el pollo", "pido el pollo"], distractors: ["pregunto", "sabe"] },
+            { type: 'drag_drop', prompt: "She asks a lot of questions.", correct: ["ella", "pregunta", "mucho"], acceptable: ["ella pregunta mucho", "pregunta mucho"], distractors: ["pide", "sabe", "por"] },
+            { type: 'drag_drop', prompt: "I don't know the phone number.", correct: ["yo", "no", "sé", "el", "número"], acceptable: ["yo no sé el número", "no sé el número"], distractors: ["conozco", "sabes"] },
+            { type: 'drag_drop', prompt: "They know Paris very well.", correct: ["ellos", "conocen", "parís", "muy", "bien"], acceptable: ["ellos conocen parís muy bien", "conocen parís muy bien"], distractors: ["saben", "conocer"] },
+            { type: 'drag_drop', prompt: "You ask for a favor.", correct: ["tú", "pides", "un", "favor"], acceptable: ["tú pides un favor", "pides tú un favor", "pides un favor tú", "pides un favor"], distractors: ["preguntas", "por"] },
+            { type: 'drag_drop', prompt: "We ask where the museum is.", correct: ["nosotros", "preguntamos", "dónde", "está", "el", "museo"], acceptable: ["nosotros preguntamos dónde está el museo", "preguntamos dónde está el museo"], distractors: ["pedimos", "sabemos"] },
+            { type: 'drag_drop', prompt: "He knows how to speak Spanish.", correct: ["él", "sabe", "hablar", "español"], acceptable: ["él sabe hablar español", "sabe hablar español"], distractors: ["conoce", "habla"] },
+            { type: 'drag_drop', prompt: "Do you know my friend Maria?", correct: ["conoces", "a", "mi", "amiga", "maría"], acceptable: ["conoces a mi amiga maría"], distractors: ["sabes", "de", "conoce"] },
 
             // True / False (10)
             { type: 'true_false', prompt: "Does 'Yo conozco Madrid' mean 'I am familiar with Madrid'?", correctAnswer: true },
@@ -103,6 +103,7 @@
 
         const PERIODS = ["1st", "A2", "A4", "B3", "B4", "5th"];
 
+        // Kept for internal shuffling of distractors, word banks, and matching choices
         const shuffleArray = (array) => {
             const newArr = [...array];
             for (let i = newArr.length - 1; i > 0; i--) {
@@ -118,7 +119,7 @@
             const [quizStarted, setQuizStarted] = useState(false);
             const [quizFinished, setQuizFinished] = useState(false);
             
-            // Randomized questions specific to this student's run
+            // This will hold our prepared questions (unshuffled order, but shuffled options)
             const [shuffledQuestions, setShuffledQuestions] = useState([]);
             
             const [currentQIndex, setCurrentQIndex] = useState(0);
@@ -262,8 +263,14 @@
                         if (q.type === 'drag_drop') {
                             const ansWords = state ? (state.selected || []) : []; 
                             const userSentence = ansWords.map(w => w.word).join(' ').toLowerCase();
-                            const correctSentence = q.correct.join(' ').toLowerCase();
-                            isRight = userSentence === correctSentence;
+                            
+                            // Check against the acceptable list first, fall back to exact match
+                            if (q.acceptable) {
+                                isRight = q.acceptable.includes(userSentence);
+                            } else {
+                                const correctSentence = q.correct.join(' ').toLowerCase();
+                                isRight = userSentence === correctSentence;
+                            }
                         } else if (q.type === 'true_false' || q.type === 'dropdown') {
                             isRight = state === q.correctAnswer;
                         } else if (q.type === 'matching') {
@@ -283,7 +290,6 @@
                         if (isRight) finalScore++;
                         finalResults.push(`${idx + 1}${isRight ? 'r' : 'w'}`);
 
-                        // Determine the correct answer as a string representation
                         let correctStr = "";
                         if (q.type === 'drag_drop') correctStr = q.correct.join(' ');
                         else if (q.type === 'true_false') correctStr = q.correctAnswer ? "True" : "False";
@@ -291,7 +297,6 @@
                         else if (q.type === 'matching') correctStr = q.pairs.map(p => `${p.left} -> ${p.right}`).join(', ');
                         else if (q.type === 'double_dropdown_matching') correctStr = q.rows.map(r => `${r.left} -> ${r.right1} ${r.right2}`).join(', ');
                         
-                        // Map the right/wrong state & the correct answer back to the original prompt
                         responsesByPrompt[q.prompt] = `${isRight ? 'right' : 'wrong'} - ${correctStr}`;
                     });
 
@@ -307,7 +312,6 @@
                 setQuizFinished(true);
                 setSubmitting(true);
                 
-                // Save to localStorage to prevent retakes
                 const emailKey = studentInfo.email.trim().toLowerCase();
                 const pastTakers = JSON.parse(localStorage.getItem('hacerQuizTakers') || '[]');
                 if (!pastTakers.includes(emailKey)) {
@@ -315,7 +319,6 @@
                     localStorage.setItem('hacerQuizTakers', JSON.stringify(pastTakers));
                 }
 
-                // 1) Download CSV for student (Basic info only, NO question details)
                 const baseHeaders = ["Quiz Title", "Date", "First Name", "Last Name", "Email", "Period", "Score", "Total Questions", "Cheating Alerts"];
                 const baseRow = [
                     "SABER VS CONOCER & PEDIR VS PREGUNTAR (50 Qs)",
@@ -339,10 +342,8 @@
                 link.click();
                 document.body.removeChild(link);
 
-                // 2) Payload for Google Sheets (INCLUDES right/wrong details for the teacher)
                 const payload = {
                     quizTitle: "SABER VS CONOCER & PEDIR VS PREGUNTAR",
-                    // Prepends the title directly to the timestamp so it goes into the existing first cell
                     timestamp: "SABER VS CONOCER & PEDIR VS PREGUNTAR - " + new Date().toLocaleString(),
                     firstName: studentInfo.firstName,
                     lastName: studentInfo.lastName,
@@ -351,29 +352,24 @@
                     score: percentageScore,
                     totalQuestions: totalQs,
                     cheatingAlertCount: cheatCount,
-                    resultsDetail: finalResults.join(', ') // "1w, 2r, 3r..."
+                    resultsDetail: finalResults.join(', ')
                 };
 
-                // Add original questions in fixed order to guarantee consistent columns for all students.
-                // Standard Google Apps Scripts extract JSON keys as headers (top row) and values as the row data.
                 QUESTIONS.forEach((q, idx) => {
                     const qHeader = `Q${idx + 1}: ${q.prompt}`;
                     payload[qHeader] = responsesByPrompt[q.prompt] || "Not Answered";
                 });
 
                 try {
-                    // Make sure to replace this URL with your actual Google Apps Script Web App URL
                     const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwEYa0Wv7mKtK7XRpDEtLwqxO9c8dfqwcPNCT4Y303nts1JxBNYw67dAXZurMJjYQHC/exec";
                     
                     if (GOOGLE_SHEETS_WEB_APP_URL !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
-                        
-                        // NEW FAILSAFE: Packages the data as a standard Web Form to bypass all firewalls and browser CORS blocking
                         const formData = new URLSearchParams();
                         formData.append("data", JSON.stringify(payload));
 
                         await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
                             method: 'POST',
-                            mode: 'no-cors', // IMPORTANT: This prevents the browser from blocking Google's redirect
+                            mode: 'no-cors',
                             body: formData
                         });
                         setSubmitStatus('Results successfully saved to Gradebook!');
@@ -390,7 +386,6 @@
 
             const currentQ = shuffledQuestions[currentQIndex];
 
-            // Safely check if the current answer state is complete enough to enable the "Next" button
             const isAnswerIncomplete = () => {
                 if (!currentQ) return true;
                 if (currentAnswer === null || currentAnswer === undefined) return true;
@@ -412,10 +407,9 @@
                 if (currentQ.type === 'dropdown') {
                     return currentAnswer === '';
                 }
-                return false; // true_false boolean handles valid/invalid natively
+                return false;
             };
 
-            // Keyboard navigation (Enter key)
             useEffect(() => {
                 const handleKeyDown = (e) => {
                     if (e.key === 'Enter' && quizStarted && !quizFinished && !showCheatAlert) {
@@ -441,7 +435,6 @@
                 setSubmitStatus('');
             };
 
-            // Prevent Copy/Paste/Right-click events globally
             const preventCopyEvents = (e) => {
                 e.preventDefault();
             };
@@ -460,8 +453,8 @@
                     
                     setLoginError('');
                     
-                    // Shuffle all questions, and generate a pre-shuffled word bank for each
-                    const newlyShuffled = shuffleArray([...QUESTIONS]).map(q => {
+                    // Maintain standard order of the main QUESTIONS array, but prepare the shuffled options for each
+                    const preparedQuestions = [...QUESTIONS].map(q => {
                         if (q.type === 'drag_drop') {
                             const combinedWords = [...q.correct, ...q.distractors].map((word, index) => ({
                                 id: `${word}-${index}-${Math.random()}`,
@@ -469,7 +462,7 @@
                             }));
                             return {
                                 ...q,
-                                initialAvailable: shuffleArray(combinedWords)
+                                initialAvailable: shuffleArray(combinedWords) // the word bank itself is still randomly shuffled
                             };
                         } else if (q.type === 'matching') {
                             const rights = q.pairs.map(p => p.right);
@@ -486,8 +479,9 @@
                         return q;
                     });
 
-                    setShuffledQuestions(newlyShuffled);
-                    setUserStates(Array(newlyShuffled.length).fill(null));
+                    // Still using the state name "setShuffledQuestions" to avoid major code rewrites, but the array is unshuffled.
+                    setShuffledQuestions(preparedQuestions);
+                    setUserStates(Array(preparedQuestions.length).fill(null));
                     setQuizStarted(true);
                 };
 
@@ -515,7 +509,6 @@
                                 </div>
                                 <div>
                                     <label className="block text-sm font-semibold text-orange-800 mb-1">School Email / ID</label>
-                                    {/* type="text" allows alphanumeric input intentionally */}
                                     <input required type="text" className="w-full px-4 py-2 rounded-lg border border-orange-200 focus:ring-2 focus:ring-orange-500 focus:outline-none"
                                         value={studentInfo.email} onChange={e => setStudentInfo({...studentInfo, email: e.target.value})} />
                                 </div>
@@ -591,12 +584,10 @@
                 );
             }
 
-            // Safe fallback if questions haven't initialized properly yet
             if (!currentQ) {
                 return <div className="min-h-screen bg-orange-50 flex items-center justify-center"><p>Loading questions...</p></div>;
             }
 
-            // Helper to determine the header based on question type
             const getQuestionHeader = (type) => {
                 if (type === 'drag_drop') return "Translate to Spanish";
                 if (type === 'true_false') return "True or False?";
@@ -605,7 +596,6 @@
                 return "Answer the Question";
             };
 
-            // Primary quiz renderer with anti-copy listeners bound to the parent div
             return (
                 <div 
                     className="min-h-screen bg-orange-50 flex flex-col items-center py-8 px-4 font-sans no-select relative"
@@ -838,9 +828,6 @@
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
-    </script>
-</body>
-</html>
     </script>
 </body>
 </html>
